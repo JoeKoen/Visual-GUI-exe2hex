@@ -1,3 +1,18 @@
+# Visual exe2hex - Windows
+
+You'll need .net 4.7 to run.
+
+The UI is simple and easy to use.
+It also saves the selected python path and exe2hex locations.
+
+The output folder is in the same location where the .exe is, it'll called `output`.
+
+Enjoy.
+
+If you dont have the exe2hex python script, you can click download and it'll download the main source from the original git repo.
+
+- - -
+
 # exe2hex
 
 Inline file transfer using in-built Windows tools (`DEBUG.exe` or PowerShell).
