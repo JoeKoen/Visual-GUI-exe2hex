@@ -11,6 +11,11 @@ Enjoy.
 
 If you dont have the exe2hex python script, you can click download and it'll download the main source from the original git repo.
 
+
+# Update 4/6/2019
+
+Updated UI to allow drag and drop for finding a file a to convert.
+
 - - -
 
 # exe2hex

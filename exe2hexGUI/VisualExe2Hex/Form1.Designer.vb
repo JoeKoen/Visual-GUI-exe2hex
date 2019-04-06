@@ -50,6 +50,7 @@ Partial Class Form1
         Me.SetPyPathofd = New System.Windows.Forms.OpenFileDialog()
         Me.exe2hexpathofd = New System.Windows.Forms.OpenFileDialog()
         Me.exepathofd = New System.Windows.Forms.OpenFileDialog()
+        Me.Label2 = New System.Windows.Forms.Label()
         CType(Me.VarLnumber, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -65,7 +66,7 @@ Partial Class Form1
         'VarB
         '
         Me.VarB.AutoSize = True
-        Me.VarB.Location = New System.Drawing.Point(12, 126)
+        Me.VarB.Location = New System.Drawing.Point(12, 144)
         Me.VarB.Name = "VarB"
         Me.VarB.Size = New System.Drawing.Size(96, 17)
         Me.VarB.TabIndex = 4
@@ -74,7 +75,7 @@ Partial Class Form1
         '
         'batout
         '
-        Me.batout.Location = New System.Drawing.Point(165, 124)
+        Me.batout.Location = New System.Drawing.Point(165, 142)
         Me.batout.Name = "batout"
         Me.batout.Size = New System.Drawing.Size(132, 20)
         Me.batout.TabIndex = 3
@@ -82,7 +83,7 @@ Partial Class Form1
         '
         'poshout
         '
-        Me.poshout.Location = New System.Drawing.Point(165, 150)
+        Me.poshout.Location = New System.Drawing.Point(165, 168)
         Me.poshout.Name = "poshout"
         Me.poshout.Size = New System.Drawing.Size(132, 20)
         Me.poshout.TabIndex = 3
@@ -91,7 +92,7 @@ Partial Class Form1
         'VarP
         '
         Me.VarP.AutoSize = True
-        Me.VarP.Location = New System.Drawing.Point(12, 152)
+        Me.VarP.Location = New System.Drawing.Point(12, 170)
         Me.VarP.Name = "VarP"
         Me.VarP.Size = New System.Drawing.Size(101, 17)
         Me.VarP.TabIndex = 4
@@ -101,7 +102,7 @@ Partial Class Form1
         'VarE
         '
         Me.VarE.AutoSize = True
-        Me.VarE.Location = New System.Drawing.Point(12, 178)
+        Me.VarE.Location = New System.Drawing.Point(12, 196)
         Me.VarE.Name = "VarE"
         Me.VarE.Size = New System.Drawing.Size(138, 17)
         Me.VarE.TabIndex = 4
@@ -110,7 +111,7 @@ Partial Class Form1
         '
         'prefix
         '
-        Me.prefix.Location = New System.Drawing.Point(165, 202)
+        Me.prefix.Location = New System.Drawing.Point(165, 220)
         Me.prefix.Name = "prefix"
         Me.prefix.Size = New System.Drawing.Size(132, 20)
         Me.prefix.TabIndex = 3
@@ -118,7 +119,7 @@ Partial Class Form1
         'VarR
         '
         Me.VarR.AutoSize = True
-        Me.VarR.Location = New System.Drawing.Point(12, 204)
+        Me.VarR.Location = New System.Drawing.Point(12, 222)
         Me.VarR.Name = "VarR"
         Me.VarR.Size = New System.Drawing.Size(52, 17)
         Me.VarR.TabIndex = 4
@@ -127,7 +128,7 @@ Partial Class Form1
         '
         'suffix
         '
-        Me.suffix.Location = New System.Drawing.Point(165, 228)
+        Me.suffix.Location = New System.Drawing.Point(165, 246)
         Me.suffix.Name = "suffix"
         Me.suffix.Size = New System.Drawing.Size(132, 20)
         Me.suffix.TabIndex = 3
@@ -135,7 +136,7 @@ Partial Class Form1
         'VarF
         '
         Me.VarF.AutoSize = True
-        Me.VarF.Location = New System.Drawing.Point(12, 230)
+        Me.VarF.Location = New System.Drawing.Point(12, 248)
         Me.VarF.Name = "VarF"
         Me.VarF.Size = New System.Drawing.Size(52, 17)
         Me.VarF.TabIndex = 4
@@ -145,7 +146,7 @@ Partial Class Form1
         'VarL
         '
         Me.VarL.AutoSize = True
-        Me.VarL.Location = New System.Drawing.Point(12, 256)
+        Me.VarL.Location = New System.Drawing.Point(12, 274)
         Me.VarL.Name = "VarL"
         Me.VarL.Size = New System.Drawing.Size(166, 17)
         Me.VarL.TabIndex = 4
@@ -154,18 +155,18 @@ Partial Class Form1
         '
         'VarLnumber
         '
-        Me.VarLnumber.Location = New System.Drawing.Point(193, 255)
-        Me.VarLnumber.Maximum = New Decimal(New Integer() {5000, 0, 0, 0})
+        Me.VarLnumber.Location = New System.Drawing.Point(193, 273)
+        Me.VarLnumber.Maximum = New Decimal(New Integer() {2048, 0, 0, 0})
         Me.VarLnumber.Name = "VarLnumber"
         Me.VarLnumber.Size = New System.Drawing.Size(104, 20)
         Me.VarLnumber.TabIndex = 5
-        Me.VarLnumber.Value = New Decimal(New Integer() {256, 0, 0, 0})
+        Me.VarLnumber.Value = New Decimal(New Integer() {512, 0, 0, 0})
         '
         'VarC
         '
         Me.VarC.AutoSize = True
         Me.VarC.Enabled = False
-        Me.VarC.Location = New System.Drawing.Point(12, 281)
+        Me.VarC.Location = New System.Drawing.Point(12, 299)
         Me.VarC.Name = "VarC"
         Me.VarC.Size = New System.Drawing.Size(242, 17)
         Me.VarC.TabIndex = 4
@@ -176,7 +177,7 @@ Partial Class Form1
         '
         Me.VarCC.AutoSize = True
         Me.VarCC.Enabled = False
-        Me.VarCC.Location = New System.Drawing.Point(31, 304)
+        Me.VarCC.Location = New System.Drawing.Point(31, 322)
         Me.VarCC.Name = "VarCC"
         Me.VarCC.Size = New System.Drawing.Size(273, 17)
         Me.VarCC.TabIndex = 4
@@ -186,7 +187,7 @@ Partial Class Form1
         'VarT
         '
         Me.VarT.AutoSize = True
-        Me.VarT.Location = New System.Drawing.Point(12, 327)
+        Me.VarT.Location = New System.Drawing.Point(12, 345)
         Me.VarT.Name = "VarT"
         Me.VarT.Size = New System.Drawing.Size(275, 17)
         Me.VarT.TabIndex = 4
@@ -196,7 +197,7 @@ Partial Class Form1
         'VarW
         '
         Me.VarW.AutoSize = True
-        Me.VarW.Location = New System.Drawing.Point(12, 350)
+        Me.VarW.Location = New System.Drawing.Point(12, 368)
         Me.VarW.Name = "VarW"
         Me.VarW.Size = New System.Drawing.Size(285, 17)
         Me.VarW.TabIndex = 4
@@ -230,26 +231,29 @@ Partial Class Form1
         '
         'ExePathBtn
         '
-        Me.ExePathBtn.Location = New System.Drawing.Point(12, 98)
+        Me.ExePathBtn.AllowDrop = True
+        Me.ExePathBtn.Location = New System.Drawing.Point(201, 2)
         Me.ExePathBtn.Name = "ExePathBtn"
         Me.ExePathBtn.Size = New System.Drawing.Size(109, 20)
         Me.ExePathBtn.TabIndex = 6
         Me.ExePathBtn.Text = "File to Convert"
         Me.ExePathBtn.UseVisualStyleBackColor = True
+        Me.ExePathBtn.Visible = False
         '
         'ExePath
         '
-        Me.ExePath.Location = New System.Drawing.Point(127, 98)
+        Me.ExePath.AllowDrop = True
+        Me.ExePath.Location = New System.Drawing.Point(12, 116)
         Me.ExePath.Name = "ExePath"
         Me.ExePath.ReadOnly = True
-        Me.ExePath.Size = New System.Drawing.Size(170, 20)
+        Me.ExePath.Size = New System.Drawing.Size(285, 20)
         Me.ExePath.TabIndex = 7
         '
         'BuildFile
         '
         Me.BuildFile.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.BuildFile.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.BuildFile.Location = New System.Drawing.Point(0, 373)
+        Me.BuildFile.Location = New System.Drawing.Point(0, 392)
         Me.BuildFile.Name = "BuildFile"
         Me.BuildFile.Size = New System.Drawing.Size(305, 31)
         Me.BuildFile.TabIndex = 8
@@ -290,11 +294,22 @@ Partial Class Form1
         '
         Me.exepathofd.Title = "Open File"
         '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(12, 100)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(131, 13)
+        Me.Label2.TabIndex = 11
+        Me.Label2.Text = "Drag and Drop a File Here"
+        '
         'Form1
         '
+        Me.AllowDrop = True
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(305, 404)
+        Me.ClientSize = New System.Drawing.Size(305, 423)
+        Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.BuildFile)
@@ -357,4 +372,5 @@ Partial Class Form1
     Friend WithEvents SetPyPathofd As OpenFileDialog
     Friend WithEvents exe2hexpathofd As OpenFileDialog
     Friend WithEvents exepathofd As OpenFileDialog
+    Friend WithEvents Label2 As Label
 End Class

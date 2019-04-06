@@ -10,3 +10,17 @@ C:\Users\kille\Documents\GitHub\VisualExe2Hex\VisualExe2Hex\obj\Debug\VisualExe2
 C:\Users\kille\Documents\GitHub\VisualExe2Hex\VisualExe2Hex\obj\Debug\VisualExe2Hex.exe
 C:\Users\kille\Documents\GitHub\VisualExe2Hex\VisualExe2Hex\obj\Debug\VisualExe2Hex.xml
 C:\Users\kille\Documents\GitHub\VisualExe2Hex\VisualExe2Hex\obj\Debug\VisualExe2Hex.pdb
+C:\Users\kille\Documents\GitHub\GitHub_VisualExe2Hex\exe2hexGUI\VisualExe2Hex\bin\Debug\VisualExe2Hex.exe.config
+C:\Users\kille\Documents\GitHub\GitHub_VisualExe2Hex\exe2hexGUI\VisualExe2Hex\bin\Debug\VisualExe2Hex.exe
+C:\Users\kille\Documents\GitHub\GitHub_VisualExe2Hex\exe2hexGUI\VisualExe2Hex\bin\Debug\VisualExe2Hex.pdb
+C:\Users\kille\Documents\GitHub\GitHub_VisualExe2Hex\exe2hexGUI\VisualExe2Hex\bin\Debug\VisualExe2Hex.xml
+C:\Users\kille\Documents\GitHub\GitHub_VisualExe2Hex\exe2hexGUI\VisualExe2Hex\obj\Debug\VisualExe2Hex.DownLoadPyFile.resources
+C:\Users\kille\Documents\GitHub\GitHub_VisualExe2Hex\exe2hexGUI\VisualExe2Hex\obj\Debug\VisualExe2Hex.Form1.resources
+C:\Users\kille\Documents\GitHub\GitHub_VisualExe2Hex\exe2hexGUI\VisualExe2Hex\obj\Debug\VisualExe2Hex.Resources.resources
+C:\Users\kille\Documents\GitHub\GitHub_VisualExe2Hex\exe2hexGUI\VisualExe2Hex\obj\Debug\VisualExe2Hex.vbproj.GenerateResource.cache
+C:\Users\kille\Documents\GitHub\GitHub_VisualExe2Hex\exe2hexGUI\VisualExe2Hex\obj\Debug\VisualExe2Hex.vbproj.CoreCompileInputs.cache
+C:\Users\kille\Documents\GitHub\GitHub_VisualExe2Hex\exe2hexGUI\VisualExe2Hex\obj\Debug\VisualExe2Hex.exe
+C:\Users\kille\Documents\GitHub\GitHub_VisualExe2Hex\exe2hexGUI\VisualExe2Hex\obj\Debug\VisualExe2Hex.xml
+C:\Users\kille\Documents\GitHub\GitHub_VisualExe2Hex\exe2hexGUI\VisualExe2Hex\obj\Debug\VisualExe2Hex.pdb
+C:\Users\kille\Documents\GitHub\GitHub_VisualExe2Hex\exe2hexGUI\VisualExe2Hex\obj\Debug\VisualExe2Hex.vbprojAssemblyReference.cache
+C:\Users\kille\Documents\GitHub\GitHub_VisualExe2Hex\exe2hexGUI\VisualExe2Hex\obj\Debug\VisualExe2Hex.VisualHex_MainForm.resources

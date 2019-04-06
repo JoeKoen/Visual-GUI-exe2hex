@@ -35,64 +35,101 @@ Public Class Form1
 
     Private Sub BuildFile_Click(sender As Object, e As EventArgs) Handles BuildFile.Click
 
-        If ExePath.Text = "" Then
-            MessageBox.Show("Nothing is selected.")
-
+        If VarP.CheckState = CheckState.Unchecked AndAlso VarP.CheckState = CheckState.Unchecked Then
+            MessageBox.Show("A Output file is required.")
         Else
-            Vargs = " -x """ + ExePath.Text + """" + " "
 
-            If Not Directory.Exists(".\output") Then
-                Directory.CreateDirectory(".\output")
-            End If
+            If ExePath.Text = "" Then
+                MessageBox.Show("Nothing is selected.")
+
+            Else
+                Vargs = " -v -x """ + ExePath.Text + """" + " "
+
+                If Not Directory.Exists(".\output") Then
+                    Directory.CreateDirectory(".\output")
+                End If
 
 
 
-            If VarB.CheckState = CheckState.Checked Then
-                Vargs = Vargs + " -b " + """" + Application.StartupPath + "\output\" + batout.Text + """"
-            End If
-            If VarP.CheckState = CheckState.Checked Then
-                Vargs = Vargs + " -p " + """" + Application.StartupPath + "\output\" + poshout.Text + """"
-            End If
-            If VarE.CheckState = CheckState.Checked Then
-                Vargs = Vargs + " -e " + " "
-            End If
-            If VarR.CheckState = CheckState.Checked Then
-                Vargs = Vargs + " -r """ + prefix.Text + """ "
-            End If
-            If VarF.CheckState = CheckState.Checked Then
-                Vargs = Vargs + " -f """ + suffix.Text + """ "
-            End If
-            If VarL.CheckState = CheckState.Checked Then
-                Vargs = Vargs + " -l """ + VarLnumber.Text + """ "
-            End If
-            If VarC.CheckState = CheckState.Checked Then
-                Vargs = Vargs + " -c "
-            End If
-            If VarCC.CheckState = CheckState.Checked Then
-                Vargs = Vargs + " -cc "
-            End If
-            If VarT.CheckState = CheckState.Checked Then
-                Vargs = Vargs + " -t "
-            End If
-            If VarW.CheckState = CheckState.Checked Then
-                Vargs = Vargs + " -w "
+                If VarB.CheckState = CheckState.Checked Then
+                    Vargs = Vargs + " -b " + """" + Application.StartupPath + "\output\" + batout.Text + """"
+                End If
+                If VarP.CheckState = CheckState.Checked Then
+                    Vargs = Vargs + " -p " + """" + Application.StartupPath + "\output\" + poshout.Text + """"
+                End If
+                If VarE.CheckState = CheckState.Checked Then
+                    Vargs = Vargs + " -e " + " "
+                End If
+                If VarR.CheckState = CheckState.Checked Then
+                    Vargs = Vargs + " -r """ + prefix.Text + """ "
+                End If
+                If VarF.CheckState = CheckState.Checked Then
+                    Vargs = Vargs + " -f """ + suffix.Text + """ "
+                End If
+                If VarL.CheckState = CheckState.Checked Then
+                    Vargs = Vargs + " -l """ + VarLnumber.Text + """ "
+                End If
+                If VarC.CheckState = CheckState.Checked Then
+                    Vargs = Vargs + " -c "
+                End If
+                If VarCC.CheckState = CheckState.Checked Then
+                    Vargs = Vargs + " -cc "
+                End If
+                If VarT.CheckState = CheckState.Checked Then
+                    Vargs = Vargs + " -t "
+                End If
+                If VarW.CheckState = CheckState.Checked Then
+                    Vargs = Vargs + " -w "
+                End If
+
+                Dim proc As New Process
+
+                Try
+                    'MessageBox.Show(PythonPath.Text + " " + """" + exe2hexPath.Text + """" + " " + Vargs)
+                    proc.StartInfo.FileName = PythonPath.Text
+                    proc.StartInfo.Arguments = """" + exe2hexPath.Text + """" + " " + Vargs
+                    proc.Start()
+
+                Catch ex As Exception
+                    MessageBox.Show(ex.StackTrace)
+                    MessageBox.Show(ex.ToString)
+                End Try
+
             End If
 
-            Dim proc As New Process
-
-            Try
-                proc.StartInfo.FileName = PythonPath.Text
-                proc.StartInfo.Arguments = """" + exe2hexPath.Text + """" + " " + Vargs
-                proc.Start()
-
-            Catch ex As Exception
-                MessageBox.Show(ex.StackTrace)
-                MessageBox.Show(ex.ToString)
-            End Try
 
         End If
 
 
 
+
+
+
+    End Sub
+
+    Private Sub ExePathBtn_DragDrop(sender As Object, e As DragEventArgs) Handles ExePathBtn.DragDrop
+        Dim files() As String = e.Data.GetData(DataFormats.FileDrop)
+        For Each path In files
+            ExePath.Text = path
+        Next
+    End Sub
+
+    Private Sub ExePath_DragDrop(sender As Object, e As DragEventArgs) Handles ExePath.DragDrop
+        Dim files() As String = e.Data.GetData(DataFormats.FileDrop)
+        For Each path In files
+            ExePath.Text = path
+        Next
+    End Sub
+
+    Private Sub ExePathBtn_DragEnter(sender As Object, e As DragEventArgs) Handles ExePathBtn.DragEnter
+        If e.Data.GetDataPresent(DataFormats.FileDrop) Then
+            e.Effect = DragDropEffects.Copy
+        End If
+    End Sub
+
+    Private Sub ExePath_DragEnter(sender As Object, e As DragEventArgs) Handles ExePath.DragEnter
+        If e.Data.GetDataPresent(DataFormats.FileDrop) Then
+            e.Effect = DragDropEffects.Copy
+        End If
     End Sub
 End Class
