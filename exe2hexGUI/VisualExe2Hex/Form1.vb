@@ -1,6 +1,11 @@
 ﻿Imports System.IO
+Imports System.Text.RegularExpressions
+Imports System.IO.Compression
 
 Public Class Form1
+
+    Dim ExeFileName As String
+    Dim ExeFileExt As String
 
     Private Sub BtnPython_Click(sender As Object, e As EventArgs) Handles BtnPython.Click
         SetPyPathofd.ShowDialog()
@@ -35,70 +40,109 @@ Public Class Form1
 
     Private Sub BuildFile_Click(sender As Object, e As EventArgs) Handles BuildFile.Click
 
-        If VarP.CheckState = CheckState.Unchecked AndAlso VarP.CheckState = CheckState.Unchecked Then
+
+        'compress the file to reduce time
+
+
+
+        If Not Directory.Exists(ExePath.Text + "_o") Then
+            Directory.CreateDirectory(ExePath.Text + "_o")
+        End If
+        If Not Directory.Exists(ExePath.Text + "_otmp") Then
+            Directory.CreateDirectory(ExePath.Text + "_otmp")
+        End If
+        Try
+            System.IO.File.Copy(ExePath.Text, ExePath.Text + "_otmp\" + ExeFileName)
+        Catch ex As Exception
+
+        End Try
+
+
+        Dim startPath As String = ExePath.Text + "_otmp\"
+        Dim zipPath As String = ExePath.Text + "_o\file" + ExeFileExt + ".zip"
+        Try
+            ZipFile.CreateFromDirectory(startPath, zipPath, CompressionLevel.Optimal, True)
+        Catch ex As Exception
+        End Try
+
+        If nameout.Text = "" Then
             MessageBox.Show("A Output file is required.")
         Else
-
-            If ExePath.Text = "" Then
-                MessageBox.Show("Nothing is selected.")
-
+            If Method.SelectedIndex.ToString = "" Then
+                MessageBox.Show("No method was selected.")
             Else
-                Vargs = " -v -x """ + ExePath.Text + """" + " "
+                If ExePath.Text = "" Then
+                    MessageBox.Show("Nothing is selected.")
+                Else
+                    Vargs = " -v -x """ + zipPath + """" + " "
+                    'MessageBox.Show(Vargs)
+                    If Not Directory.Exists(".\output") Then
+                        Directory.CreateDirectory(".\output")
+                    End If
 
-                If Not Directory.Exists(".\output") Then
-                    Directory.CreateDirectory(".\output")
-                End If
+                    ' Setting Name
+                    Vargs = Vargs + " -o " + """" + Application.StartupPath + "\output\" + nameout.Text + """"
 
+                    If VarE.CheckState = CheckState.Checked Then
+                        Vargs = Vargs + " -e " + " "
+                    End If
+                    If Method.SelectedIndex = 1 Then
+                        Vargs = Vargs + " -m 1" + " "
+                    End If
+                    If Method.SelectedIndex = 2 Then
+                        Vargs = Vargs + " -m 2" + " "
+                    End If
+                    If Method.SelectedIndex = 3 Then
+                        Vargs = Vargs + " -m 3" + " "
+                    End If
+                    If VarR.CheckState = CheckState.Checked Then
+                        Vargs = Vargs + " -r """ + prefix.Text + """ "
+                    End If
+                    If VarF.CheckState = CheckState.Checked Then
+                        Vargs = Vargs + " -f """ + suffix.Text + """ "
+                    End If
+                    If VarL.CheckState = CheckState.Checked Then
+                        Vargs = Vargs + " -l """ + VarLnumber.Text + """ "
+                    End If
+                    If VarC.CheckState = CheckState.Checked Then
+                        Vargs = Vargs + " -c "
+                    End If
+                    If VarCC.CheckState = CheckState.Checked Then
+                        Vargs = Vargs + " -cc "
+                    End If
+                    'If VarT.CheckState = CheckState.Checked Then
+                    '    Vargs = Vargs + " -t "
+                    'End If
+                    'If VarW.CheckState = CheckState.Checked Then
+                    '    Vargs = Vargs + " -w "
+                    'End If
 
+                    Dim proc As New Process
 
-                If VarB.CheckState = CheckState.Checked Then
-                    Vargs = Vargs + " -b " + """" + Application.StartupPath + "\output\" + batout.Text + """"
-                End If
-                If VarP.CheckState = CheckState.Checked Then
-                    Vargs = Vargs + " -p " + """" + Application.StartupPath + "\output\" + poshout.Text + """"
-                End If
-                If VarE.CheckState = CheckState.Checked Then
-                    Vargs = Vargs + " -e " + " "
-                End If
-                If VarR.CheckState = CheckState.Checked Then
-                    Vargs = Vargs + " -r """ + prefix.Text + """ "
-                End If
-                If VarF.CheckState = CheckState.Checked Then
-                    Vargs = Vargs + " -f """ + suffix.Text + """ "
-                End If
-                If VarL.CheckState = CheckState.Checked Then
-                    Vargs = Vargs + " -l """ + VarLnumber.Text + """ "
-                End If
-                If VarC.CheckState = CheckState.Checked Then
-                    Vargs = Vargs + " -c "
-                End If
-                If VarCC.CheckState = CheckState.Checked Then
-                    Vargs = Vargs + " -cc "
-                End If
-                If VarT.CheckState = CheckState.Checked Then
-                    Vargs = Vargs + " -t "
-                End If
-                If VarW.CheckState = CheckState.Checked Then
-                    Vargs = Vargs + " -w "
-                End If
+                    Try
+                        'MessageBox.Show(PythonPath.Text + " " + """" + exe2hexPath.Text + """" + " " + Vargs)
+                        proc.StartInfo.FileName = PythonPath.Text
+                        proc.StartInfo.Arguments = """" + exe2hexPath.Text + """" + " " + Vargs
+                        proc.WaitForExit(proc.Start)
 
-                Dim proc As New Process
+                        My.Computer.FileSystem.DeleteDirectory(ExePath.Text + "_otmp", FileIO.DeleteDirectoryOption.DeleteAllContents)
+                        My.Computer.FileSystem.DeleteDirectory(ExePath.Text + "_o", FileIO.DeleteDirectoryOption.DeleteAllContents)
 
-                Try
-                    'MessageBox.Show(PythonPath.Text + " " + """" + exe2hexPath.Text + """" + " " + Vargs)
-                    proc.StartInfo.FileName = PythonPath.Text
-                    proc.StartInfo.Arguments = """" + exe2hexPath.Text + """" + " " + Vargs
-                    proc.Start()
+                    Catch ex As Exception
+                        MessageBox.Show(ex.StackTrace)
+                        MessageBox.Show(ex.ToString)
+                    End Try
 
-                Catch ex As Exception
-                    MessageBox.Show(ex.StackTrace)
-                    MessageBox.Show(ex.ToString)
-                End Try
-
+                End If
             End If
-
-
         End If
+
+        'Try
+        '    My.Computer.FileSystem.DeleteDirectory(ExePath.Text + "_otmp", FileIO.DeleteDirectoryOption.DeleteAllContents)
+        '    My.Computer.FileSystem.DeleteDirectory(ExePath.Text + "_o", FileIO.DeleteDirectoryOption.DeleteAllContents)
+        'Catch ex As Exception
+
+        'End Try
 
 
 
@@ -118,6 +162,9 @@ Public Class Form1
         Dim files() As String = e.Data.GetData(DataFormats.FileDrop)
         For Each path In files
             ExePath.Text = path
+
+            ExeFileName = System.IO.Path.GetFileName(files(0))
+            ExeFileExt = System.IO.Path.GetExtension(files(0))
         Next
     End Sub
 
